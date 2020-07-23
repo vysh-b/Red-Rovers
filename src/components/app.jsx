@@ -5,14 +5,16 @@ import BFS from "./pathFind";
 const sR = 9;
 const sC = 3;
 const eR = 9;
-const eC = 16;
+const eC = 19;
+const h = 20;
+const w = 23;
 
-let initialGrid = Array(20)
+let initialGrid = Array(h)
   .fill()
-  .map((_) => Array(20).fill(""));
+  .map((_) => Array(w).fill(""));
 
-for (let j = 0; j < 20; j++) {
-  for (let k = 0; k < 20; k++) {
+for (let j = 0; j < h; j++) {
+  for (let k = 0; k < w; k++) {
     initialGrid[j][k] = { r: j, c: k, val: "0" };
   }
 }
@@ -44,12 +46,12 @@ class App extends Component {
     });
   };
   handleClearObs = () => {
-    let tempGrid = Array(20)
+    let tempGrid = Array(h)
       .fill()
-      .map((_) => Array(20).fill(""));
+      .map((_) => Array(w).fill(""));
 
-    for (let j = 0; j < 20; j++) {
-      for (let k = 0; k < 20; k++) {
+    for (let j = 0; j < h; j++) {
+      for (let k = 0; k < w; k++) {
         tempGrid[j][k] = { r: j, c: k, val: "0" };
       }
     }
@@ -62,12 +64,12 @@ class App extends Component {
   };
 
   handleResetBoard = () => {
-    let tempGrid = Array(20)
+    let tempGrid = Array(h)
       .fill()
-      .map((_) => Array(20).fill(""));
+      .map((_) => Array(w).fill(""));
 
-    for (let j = 0; j < 20; j++) {
-      for (let k = 0; k < 20; k++) {
+    for (let j = 0; j < h; j++) {
+      for (let k = 0; k < w; k++) {
         tempGrid[j][k] = { r: j, c: k, val: "0" };
       }
     }
@@ -139,7 +141,7 @@ class App extends Component {
     } else {
       this.setState({
         currentGrid: tempGrid,
-        notFoundMsg: "NO PATH AVAILABLE",
+        notFoundMsg: <p className="err">NO PATH AVAILABLE</p>,
         pathLength: 0,
       });
     }

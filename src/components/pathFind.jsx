@@ -1,15 +1,17 @@
+const h = 20;
+const w = 23;
 function BFS(sRow, sCol, Grid, diag) {
   console.log("reached bfs");
-  let tempGrid = Array(20)
+  let tempGrid = Array(h)
     .fill()
-    .map((_) => Array(20).fill(""));
-  let retGrid = Array(20)
+    .map((_) => Array(w).fill(""));
+  let retGrid = Array(h)
     .fill()
-    .map((_) => Array(20).fill(""));
+    .map((_) => Array(w).fill(""));
 
   let found = false;
-  for (let j = 0; j < 20; j++) {
-    for (let k = 0; k < 20; k++) {
+  for (let j = 0; j < h; j++) {
+    for (let k = 0; k < w; k++) {
       tempGrid[j][k] = {
         r: j,
         c: k,
@@ -26,8 +28,8 @@ function BFS(sRow, sCol, Grid, diag) {
       };
     }
   }
-  for (let j = 0; j < 20; j++) {
-    for (let k = 0; k < 20; k++) {
+  for (let j = 0; j < h; j++) {
+    for (let k = 0; k < w; k++) {
       if (tempGrid[j][k].val === "3") {
         tempGrid[j][k].visited = true;
       }
@@ -57,7 +59,7 @@ function BFS(sRow, sCol, Grid, diag) {
       newList.push(tempGrid[node.r - 1][node.c]);
     }
     //moving down
-    if (node.r + 1 < 20 && tempGrid[node.r + 1][node.c].visited === false) {
+    if (node.r + 1 < h && tempGrid[node.r + 1][node.c].visited === false) {
       tempGrid[node.r + 1][node.c].d = node.d + 1;
       tempGrid[node.r + 1][node.c].visited = true;
       tempGrid[node.r + 1][node.c].prevR = node.r;
@@ -73,7 +75,7 @@ function BFS(sRow, sCol, Grid, diag) {
       newList.push(tempGrid[node.r][node.c - 1]);
     }
     //moving right
-    if (node.c + 1 < 20 && tempGrid[node.r][node.c + 1].visited === false) {
+    if (node.c + 1 < w && tempGrid[node.r][node.c + 1].visited === false) {
       tempGrid[node.r][node.c + 1].d = node.d + 1;
       tempGrid[node.r][node.c + 1].visited = true;
       tempGrid[node.r][node.c + 1].prevR = node.r;
@@ -96,7 +98,7 @@ function BFS(sRow, sCol, Grid, diag) {
       //top right
       if (
         node.r - 1 >= 0 &&
-        node.c + 1 < 20 &&
+        node.c + 1 < w &&
         tempGrid[node.r - 1][node.c + 1].visited === false
       ) {
         tempGrid[node.r - 1][node.c + 1].d = node.d + 1;
@@ -107,7 +109,7 @@ function BFS(sRow, sCol, Grid, diag) {
       }
       //bottom left
       if (
-        node.r + 1 < 20 &&
+        node.r + 1 < h &&
         node.c - 1 >= 0 &&
         tempGrid[node.r + 1][node.c - 1].visited === false
       ) {
@@ -119,8 +121,8 @@ function BFS(sRow, sCol, Grid, diag) {
       }
       //bottom right
       if (
-        node.r + 1 < 20 &&
-        node.c + 1 < 20 &&
+        node.r + 1 < h &&
+        node.c + 1 < w &&
         tempGrid[node.r + 1][node.c + 1].visited === false
       ) {
         tempGrid[node.r + 1][node.c + 1].d = node.d + 1;
