@@ -22,7 +22,8 @@ initialGrid[eR][eC].val = "2";
 
 class App extends Component {
   state = {
-    selectedOption: "-1",
+    diagSelected: false,
+    selectedOption: "3",
     startRow: sR,
     startCol: sC,
     endRow: eR,
@@ -33,6 +34,11 @@ class App extends Component {
   handleOptionChange = (value) => {
     this.setState({
       selectedOption: value,
+    });
+  };
+  handleDiagChange = (value) => {
+    this.setState({
+      diagSelected: value,
     });
   };
   handleClearObs = () => {
@@ -113,7 +119,12 @@ class App extends Component {
   };
   handleSearch = () => {
     console.log("reached handle");
-    BFS(this.state.startCol, this.state.endCol, this.state.currentGrid);
+    BFS(
+      this.state.startRow,
+      this.state.startCol,
+      this.state.currentGrid,
+      this.state.diagSelected
+    );
   };
   render() {
     return (
@@ -124,6 +135,8 @@ class App extends Component {
           clrObs={this.handleClearObs}
           rstBrd={this.handleResetBoard}
           startSearch={this.handleSearch}
+          diag={this.state.diagSelected}
+          diagChange={this.handleDiagChange}
         />
 
         <Grid setGrid={this.state.currentGrid} aOnClick={this.handleClick} />

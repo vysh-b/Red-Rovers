@@ -57,6 +57,17 @@ class Menu extends Component {
             </label>
           </div>
         </form>
+        <label>
+          <input
+            name="diag"
+            type="checkbox"
+            checked={this.props.diag}
+            onChange={(changeEvent) =>
+              this.props.diagChange(changeEvent.target.checked)
+            }
+          />
+          Allow Diagonal Paths
+        </label>
 
         <button
           className="btn-default m-2 btn-block opt"
