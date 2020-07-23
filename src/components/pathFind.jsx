@@ -17,7 +17,7 @@ function BFS(sRow, sCol, Grid, diag) {
         c: k,
         val: Grid[j][k].val === "4" ? "0" : Grid[j][k].val,
         d: 0,
-        visited: false,
+        visited: Grid[j][k].val === "3" ? true : false,
         prevR: 0,
         prevC: 0,
       };
@@ -28,13 +28,7 @@ function BFS(sRow, sCol, Grid, diag) {
       };
     }
   }
-  for (let j = 0; j < h; j++) {
-    for (let k = 0; k < w; k++) {
-      if (tempGrid[j][k].val === "3") {
-        tempGrid[j][k].visited = true;
-      }
-    }
-  }
+
   var newList = [];
   var start = tempGrid[sRow][sCol];
   newList.push(start);
@@ -47,9 +41,7 @@ function BFS(sRow, sCol, Grid, diag) {
       found = true;
       break;
     }
-    //top left
 
-    ///////
     //moving up
     if (node.r - 1 >= 0 && tempGrid[node.r - 1][node.c].visited === false) {
       tempGrid[node.r - 1][node.c].d = node.d + 1;
@@ -82,6 +74,7 @@ function BFS(sRow, sCol, Grid, diag) {
       tempGrid[node.r][node.c + 1].prevC = node.c;
       newList.push(tempGrid[node.r][node.c + 1]);
     }
+    //If diagonal movement allowed
     if (diag === true) {
       if (
         node.r - 1 >= 0 &&
