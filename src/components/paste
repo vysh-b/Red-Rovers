@@ -9,3 +9,13 @@
         />
 
         <Grid setGrid={this.state.currentGrid} aOnClick={this.handleClick} />
+
+
+
+
+        return (
+      <PathFind
+        sRow={this.state.startRow}
+        sCol={this.state.startCol}
+        Grid={this.state.currentGrid}
+      />

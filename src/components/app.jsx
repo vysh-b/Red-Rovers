@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Grid from "./grid";
 import Menu from "./menu";
-import PathFind from "./pathFind";
+import BFS from "./pathFind";
 const sR = 9;
 const sC = 3;
 const eR = 9;
@@ -92,8 +92,6 @@ class App extends Component {
         tempGrid[row][col].val = "2";
         this.setState({ endRow: row, endCol: col });
       }
-      let y = tempGrid[9][3];
-      console.log(y.val);
     }
 
     //setting obstacles
@@ -115,10 +113,7 @@ class App extends Component {
   };
   handleSearch = () => {
     console.log("reached handle");
-    let path = new PathFind();
-    console.log(
-      path.BFS(this.state.startCol, this.state.endCol, this.state.currentGrid)
-    );
+    BFS(this.state.startCol, this.state.endCol, this.state.currentGrid);
   };
   render() {
     return (
