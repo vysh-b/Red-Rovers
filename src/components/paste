@@ -1,0 +1,11 @@
+//basically a clipboard
+
+<Menu
+          optionChange={this.handleOptionChange}
+          activeOption={this.state.selectedOption}
+          clrObs={this.handleClearObs}
+          rstBrd={this.handleResetBoard}
+          startSearch = {this.handleSearch}
+        />
+
+        <Grid setGrid={this.state.currentGrid} aOnClick={this.handleClick} />
