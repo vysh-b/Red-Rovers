@@ -131,16 +131,17 @@ function BFS(sRow, sCol, Grid, diag) {
       }
     }
   }
-
+  const len = node.d;
+  console.log(len);
   if (!found) {
-    return found;
+    return [found, len, retGrid];
   } else {
     node = tempGrid[node.prevR][node.prevC];
     while (node.val !== "1") {
       retGrid[node.r][node.c].val = "4";
       node = tempGrid[node.prevR][node.prevC];
     }
-    return retGrid;
+    return [found, len, retGrid];
   }
 }
 export default BFS;

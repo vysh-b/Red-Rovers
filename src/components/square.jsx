@@ -12,7 +12,7 @@ class Square extends Component {
   }
   //0empty, 1start, 2end, 3obs
   setStyle = (square) => {
-    let style = "sq btn m-0 rounded-0 btn-";
+    let style = "sq border-white btn m-0 rounded-0 btn-";
     style +=
       square.val === "1"
         ? "success"

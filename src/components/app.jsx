@@ -30,6 +30,7 @@ class App extends Component {
     endCol: eC,
     currentGrid: initialGrid,
     notFoundMsg: "",
+    pathLength: 0,
   };
 
   handleOptionChange = (value) => {
@@ -55,7 +56,7 @@ class App extends Component {
 
     tempGrid[this.state.startRow][this.state.startCol].val = "1";
     tempGrid[this.state.endRow][this.state.endCol].val = "2";
-    this.setState({ currentGrid: tempGrid, notFoundMsg: "" });
+    this.setState({ currentGrid: tempGrid, notFoundMsg: "", pathLength: 0 });
 
     return;
   };
@@ -74,7 +75,7 @@ class App extends Component {
     tempGrid[sR][sC].val = "1";
     tempGrid[eR][eC].val = "2";
 
-    this.setState({ currentGrid: tempGrid, notFoundMsg: "" });
+    this.setState({ currentGrid: tempGrid, notFoundMsg: "", pathLength: 0 });
 
     return;
   };
@@ -122,17 +123,25 @@ class App extends Component {
   handleSearch = () => {
     console.log("reached handle");
 
-    let path = BFS(
+    const [found, len, tempGrid] = BFS(
       this.state.startRow,
       this.state.startCol,
       this.state.currentGrid,
       this.state.diagSelected
     );
-    console.log(path);
-    if (path) {
-      this.setState({ currentGrid: path, notFoundMsg: "" });
+
+    if (found) {
+      this.setState({
+        currentGrid: tempGrid,
+        notFoundMsg: "",
+        pathLength: len,
+      });
     } else {
-      this.setState({ notFoundMsg: "NO PATH AVAILABLE" });
+      this.setState({
+        currentGrid: tempGrid,
+        notFoundMsg: "NO PATH AVAILABLE",
+        pathLength: 0,
+      });
     }
     return;
   };
@@ -154,6 +163,10 @@ class App extends Component {
           aOnClick={this.handleClick}
           notFound={this.state.notFoundMsg}
         />
+        <div className="length">
+          <div>Path Length</div>
+          <div>{this.state.pathLength}</div>
+        </div>
       </div>
     );
   }

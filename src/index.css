@@ -10,9 +10,24 @@ body {
   height: 30px;
   width: 30px;
 }
-.opt {
+.length {
+  border-radius: 10%;
+  border-color: #cc0606;
+  font-weight: bold;
+  color: beige;
+  text-align: center;
+  height: 105px;
+  width: 105px;
+  background-color: #ff3636;
+  position: fixed;
+  padding: 1em;
+  right: 15%;
+  top: 50%;
+  transform: translate(0%, -50%);
 }
+
 .grid {
+  border-radius: 1%;
   text-align: center;
   font-weight: bold;
   background-color: #ddd;
@@ -23,9 +38,10 @@ body {
   transform: translate(-50%, -50%);
 }
 .menu {
-  border-color: black;
+  border-radius: 1%;
+  border-color: #7d7d7d;
   border-style: solid;
-  background-color: #ddd;
+
   background-color: #ddd;
   position: fixed;
   padding: 2rem;
