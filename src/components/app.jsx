@@ -29,6 +29,7 @@ class App extends Component {
     endRow: eR,
     endCol: eC,
     currentGrid: initialGrid,
+    notFoundMsg: "",
   };
 
   handleOptionChange = (value) => {
@@ -54,7 +55,7 @@ class App extends Component {
 
     tempGrid[this.state.startRow][this.state.startCol].val = "1";
     tempGrid[this.state.endRow][this.state.endCol].val = "2";
-    this.setState({ currentGrid: tempGrid });
+    this.setState({ currentGrid: tempGrid, notFoundMsg: "" });
 
     return;
   };
@@ -73,11 +74,12 @@ class App extends Component {
     tempGrid[sR][sC].val = "1";
     tempGrid[eR][eC].val = "2";
 
-    this.setState({ currentGrid: tempGrid });
+    this.setState({ currentGrid: tempGrid, notFoundMsg: "" });
 
     return;
   };
   handleClick = (row, col) => {
+    this.setState({ notFoundMsg: "" });
     let tempGrid = this.state.currentGrid;
     let i = this.state.selectedOption;
     //setting start and end
@@ -119,12 +121,20 @@ class App extends Component {
   };
   handleSearch = () => {
     console.log("reached handle");
-    BFS(
+
+    let path = BFS(
       this.state.startRow,
       this.state.startCol,
       this.state.currentGrid,
       this.state.diagSelected
     );
+    console.log(path);
+    if (path) {
+      this.setState({ currentGrid: path, notFoundMsg: "" });
+    } else {
+      this.setState({ notFoundMsg: "NO PATH AVAILABLE" });
+    }
+    return;
   };
   render() {
     return (
@@ -139,7 +149,11 @@ class App extends Component {
           diagChange={this.handleDiagChange}
         />
 
-        <Grid setGrid={this.state.currentGrid} aOnClick={this.handleClick} />
+        <Grid
+          setGrid={this.state.currentGrid}
+          aOnClick={this.handleClick}
+          notFound={this.state.notFoundMsg}
+        />
       </div>
     );
   }

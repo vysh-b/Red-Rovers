@@ -7,6 +7,7 @@ class Grid extends Component {
   render() {
     return (
       <span className="grid">
+        <p>{this.props.notFound}</p>
         {this.props.setGrid.map((row) => (
           <div>
             {row.map((square) => (

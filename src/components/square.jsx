@@ -20,7 +20,9 @@ class Square extends Component {
         ? "danger"
         : square.val === "0"
         ? "light"
-        : "secondary";
+        : square.val === "3"
+        ? "secondary"
+        : "warning";
     return style;
   };
 }

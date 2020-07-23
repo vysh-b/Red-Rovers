@@ -13,6 +13,8 @@ body {
 .opt {
 }
 .grid {
+  text-align: center;
+  font-weight: bold;
   background-color: #ddd;
   position: fixed;
   padding: 0.5em;
