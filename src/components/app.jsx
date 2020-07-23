@@ -111,7 +111,7 @@ class App extends Component {
         ) {
           return;
         } else {
-          tempGrid[row][col].val = tempGrid[row][col].val === "0" ? "3" : "0";
+          tempGrid[row][col].val = tempGrid[row][col].val !== "3" ? "3" : "0";
         }
       }
     }

@@ -13,7 +13,7 @@ function BFS(sRow, sCol, Grid, diag) {
       tempGrid[j][k] = {
         r: j,
         c: k,
-        val: Grid[j][k].val,
+        val: Grid[j][k].val === "4" ? "0" : Grid[j][k].val,
         d: 0,
         visited: false,
         prevR: 0,
@@ -22,7 +22,7 @@ function BFS(sRow, sCol, Grid, diag) {
       retGrid[j][k] = {
         r: j,
         c: k,
-        val: Grid[j][k].val,
+        val: Grid[j][k].val === "4" ? "0" : Grid[j][k].val,
       };
     }
   }
@@ -137,7 +137,7 @@ function BFS(sRow, sCol, Grid, diag) {
   } else {
     node = tempGrid[node.prevR][node.prevC];
     while (node.val !== "1") {
-      retGrid[node.r][node.c].val = "5";
+      retGrid[node.r][node.c].val = "4";
       node = tempGrid[node.prevR][node.prevC];
     }
     return retGrid;
