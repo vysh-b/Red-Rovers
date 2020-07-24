@@ -1,21 +1,22 @@
-                   
+
+
 ![LOGO](./public/Images/logo.png)
-# Navigating the Mars Rover 
+
+# Navigating the Mars Rover
+
 ## Project submission for the Mars Colonization Program
+
 ## Team Red Rovers
-
-
 
 **About**
 
-[Red Rovers Application](https://aditi-uma.github.io/Red-Rovers/)
+[Red Rovers Application](https://vysh-b.github.io/Red-Rovers/)
 
 This web app finds the shortest path between two points. It uses Breadth-First Search algorithm to find the path and its length. Diagonal paths can be enabled.
 
 This was bootstrapped using React and Node.js.
 
 We chose to use React because of its relatively gentle learning curve for people new to front-end web development. Our learning process was to learn the basics of HTML, CSS and JavaScript and then watch the video React Tutorial for Beginners [React js], uploaded by Programming with Mosh.
-
 
 **Usage**
 
@@ -51,10 +52,8 @@ This is a path with Allow Diagonal Paths disabled.
 
 ![NODIAG](./public/Images/board-nodiag.png)
 
-
-
 **This project was developed by -**
+
 - **Vyshnavi Badrinarayanan**
 - **Aditi Umashankar**
 - **From BITS Pilani, Goa Campus**
-
