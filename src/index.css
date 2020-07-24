@@ -1,10 +1,23 @@
 body {
+  background-image: url(./components/surface.jpg);
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.logo {
+  height: 150px;
+  width: 150px;
+
+  position: fixed;
+  padding: 0em;
+  left: 5%;
+  top: 12%;
+  transform: translate(0%, -50%);
 }
 .sq {
   height: 30px;
@@ -45,6 +58,7 @@ body {
 }
 
 .grid {
+  opacity: 0.9;
   border-radius: 1%;
   text-align: center;
   font-weight: bold;
@@ -55,7 +69,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-.menu {
+.menusp {
   border-radius: 1%;
   border-color: #7d7d7d;
   border-style: solid;
