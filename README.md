@@ -1,5 +1,3 @@
-
-
 ![LOGO](./public/Images/logo.png)
 
 # Navigating the Mars Rover
